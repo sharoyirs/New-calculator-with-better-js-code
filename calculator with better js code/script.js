@@ -1,3 +1,4 @@
+
 "use strict";
 
 const resultText = document.querySelector(".result-text");
@@ -35,10 +36,13 @@ document.addEventListener("keydown", function (event) {
 		calculation = [];
 	} else if (calculation.length === 18) {
 		alert("too many keys");
+	} else if (event.key === "Backspace") {
+		calculation.splice(-1)
+		display = calculation.join("");
+		resultText.textContent = display;
 	} else {
 		calculation.push(event.key);
 		display = calculation.join("");
 		resultText.textContent = display;
-		console.log(calculation.length);
 	}
 });
